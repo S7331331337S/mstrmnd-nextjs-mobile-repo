@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --background-100: #ffffff;
+  --background-200: #fafafa;
+  --foreground: #171717;
+  --gray-1000: #0a0a0a;
+  --gray-900: #666666;
+  --gray-800: #7d7d7d;
+  --gray-400: #ebebeb;
+  --gray-200: #f2f2f2;
+  --gray-alpha-100: rgb(0 0 0 / 0.04);
+  --gray-alpha-200: rgb(0 0 0 / 0.08);
+  --gray-alpha-400: rgb(0 0 0 / 0.12);
+  --header-height: 64px;
+  --header-zindex: 40;
+  --page-width: 1200px;
+  --page-margin: 24px;
+  --focus-color: #0072f5;
+}
+
+.dark {
+  --background: #000000;
+  --background-100: #0a0a0a;
+  --background-200: #000000;
+  --foreground: #ededed;
+  --gray-1000: #ededed;
+  --gray-900: #a1a1a1;
+  --gray-800: #888888;
+  --gray-400: #2e2e2e;
+  --gray-200: #1a1a1a;
+  --gray-alpha-100: rgb(255 255 255 / 0.06);
+  --gray-alpha-200: rgb(255 255 255 / 0.09);
+  --gray-alpha-400: rgb(255 255 255 / 0.14);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+  --color-foreground: var(--foreground);
+  --color-gray-1000: var(--gray-1000);
+  --color-gray-900: var(--gray-900);
+  --color-gray-800: var(--gray-800);
+  --color-gray-400: var(--gray-400);
+  --color-gray-200: var(--gray-200);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background-200);
+  color: var(--gray-1000);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--gray-1000);
+  color: var(--background-200);
+}
+
+.page-gutter {
+  padding-inline: var(--page-margin);
+}
+
+.page-width {
+  width: 100%;
+  max-width: calc(var(--page-width) + (var(--page-margin) * 2));
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
+}
+
+.shadow-border {
+  box-shadow: 0 0 0 1px var(--gray-alpha-400);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(
+      48% 52% at 50% 46%,
+      rgb(255 255 255 / 0.9) 0%,
+      rgb(255 255 255 / 0) 70%
+    ),
+    radial-gradient(
+      42% 42% at 50% 50%,
+      rgb(180 180 180 / 0.35) 0%,
+      transparent 72%
+    );
+}
+
+.dark .hero-glow {
+  background:
+    radial-gradient(
+      48% 52% at 50% 46%,
+      rgb(48 48 48 / 0.9) 0%,
+      rgb(0 0 0 / 0) 70%
+    ),
+    radial-gradient(
+      42% 42% at 50% 50%,
+      rgb(90 90 90 / 0.28) 0%,
+      transparent 72%
+    );
+}
